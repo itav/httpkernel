@@ -26,68 +26,14 @@ $routes->add('hello', new Route('/', array(
         }
     )
 ));
-    use Symfony\Component\Intl\Intl;
-
-\Locale::setDefault('en');
-
-$currencies = Intl::getCurrencyBundle()->getCurrencyNames('de');
-// => array('AFN' => 'Afghan Afghani', ...)
-
-$currency = Intl::getCurrencyBundle()->getCurrencyName('INR');
-// => 'Indian Rupee'
-
-$symbol = Intl::getCurrencyBundle()->getCurrencySymbol('INR');
-// => '₹'
-
-$fractionDigits = Intl::getCurrencyBundle()->getFractionDigits('INR');
-// => 2
-
-$roundingIncrement = Intl::getCurrencyBundle()->getRoundingIncrement('INR');
-// => 0
-print_r([$currencies, $currency, $symbol, $fractionDigits, $roundingIncrement]);
-
-
-\Locale::setDefault('en');
-
-$languages = Intl::getLanguageBundle()->getLanguageNames();
-// => array('ab' => 'Abkhazian', ...)
-
-$language2 = Intl::getLanguageBundle()->getLanguageName('de');
-// => 'German'
-
-$language3 = Intl::getLanguageBundle()->getLanguageName('de', 'AT');
-// => 'Austrian German'
-
-$scripts = Intl::getLanguageBundle()->getScriptNames();
-// => array('Arab' => 'Arabic', ...)
-
-$script = Intl::getLanguageBundle()->getScriptName('Hans');
-// => 'Simplified'
-
-print_r([$languages, $language2, $language3, $scripts, $script]);
-
-
-\Locale::setDefault('pl');
-
-$countries = Intl::getRegionBundle()->getCountryNames();
-// => array('AF' => 'Afghanistan', ...)
-
-$country = Intl::getRegionBundle()->getCountryName('GB');
-// => 'United Kingdom'
     
-print_r([$countries, $country]);
 
+use Symfony\Component\Debug\ErrorHandler;
+use Symfony\Component\Debug\ExceptionHandler;
 
-\Locale::setDefault('pl');
+ErrorHandler::register();
 
-$locales = Intl::getLocaleBundle()->getLocaleNames();
-// => array('af' => 'Afrikaans', ...)
-
-$locale = Intl::getLocaleBundle()->getLocaleName('save');
-// => 'Chinese (Simplified, Macau SAR China)'
-
-print_r([$locales, $locale]);
-
+ExceptionHandler::register();
 
 $request = Request::createFromGlobals();
 
